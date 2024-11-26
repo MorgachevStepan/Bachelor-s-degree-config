@@ -10,6 +10,10 @@ spring:
         locator:
           enabled: true
       routes:
+        - id: technic-service-route
+          uri: lb://technic-service
+          predicates:
+            - Path=/api/v1/technics/**
 
 eureka:
   client:
