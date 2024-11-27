@@ -3,6 +3,8 @@ server:
   address: 127.0.0.1
 
 spring:
+  application:
+    name: technic-service
   datasource:
     url: jdbc:postgresql://localhost:5432/technic_db
     username: user
@@ -12,8 +14,14 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  application:
-    name: technic-service
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+          order_inserts: true
+          order_updates: true
+          batch_versioned_data: true
+        generate_statistics: true
 
 eureka:
   client:
